@@ -88,7 +88,7 @@ namespace ApiServiceForAristocrat1.Controllers
             {
                 var existingAdmin = _context.Admins.SingleOrDefault(u => u.Email == admin.Email && u.Password ==  admin.Password);
                 if (existingAdmin == null) { return Unauthorized("Неверные учетные данные"); }
-                return Ok("Авторизация успешна");
+                return Ok(existingAdmin.FIO);
             }
             catch (Exception ex)
             {
